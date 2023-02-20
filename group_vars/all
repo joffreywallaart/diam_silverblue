@@ -1,0 +1,18 @@
+# Februari 2023 Joffrey Wallaart: First version
+
+# This file contains all variables for the entire playbook. Make most edits here.
+
+# layered_packages variables
+##
+
+layered_packages_install:
+    - vim
+    - gnome-shell-extension-appindicator
+    - gnome-shell-extension-sound-output-device-chooser
+    - gnome-shell-extension-gsconnect
+    - gnome-shell-extension-dash-to-dock
+    - gnome-tweaks
+
+base_packages_remove:
+    - firefox-langpacks
+    - firefox
