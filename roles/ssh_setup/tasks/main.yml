@@ -1,0 +1,15 @@
+---
+
+- name: Enable ssh service
+  ansible.builtin.service:
+    name: sshd
+    enabled: yes
+    state: started
+
+- name: Copy config file to /etc/ssh/sshd_config.d/
+  ansible.builtin.copy:
+    src: ansible_ssh.conf
+    dest: /etc/ssh/sshd_config.d/40-ansible_ssh.conf
+    owner: root
+    group: root
+    mode: 0600
