@@ -18,9 +18,12 @@
   loop: "{{ layered_packages_install }}"
 
 - name: Remove applications from the base OS
-  ansible.builtin.command: rpm-ostree override remove {{ item }}
+  community.general.rpm_ostree_pkg:
+    name: "{{ item }}"
+    state: absent
+    # apply_live: true  # This feature is not yet available
   become: yes
-  loop: "{{ base_packages_remove }}"
+  loop: "{{ layered_packages_remove }}"
 
 - debug:
     msg: "A reboot is required to complete installation / removal of these packages"

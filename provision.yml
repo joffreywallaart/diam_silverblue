@@ -4,3 +4,4 @@
   roles:
     - { role: ssh_setup }
     - { role: layered_packages }
+    - { role: flatpaks }

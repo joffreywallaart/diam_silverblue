@@ -9,10 +9,26 @@ layered_packages_install:
     - vim
     - gnome-shell-extension-appindicator
     - gnome-shell-extension-sound-output-device-chooser
-    - gnome-shell-extension-gsconnect
     - gnome-shell-extension-dash-to-dock
     - gnome-tweaks
 
-base_packages_remove:
+layered_packages_remove:
     - firefox-langpacks
     - firefox
+
+# flatpaks variables
+##
+
+flatpak_remote_install:
+  - { name: 'flathub', url: 'https://dl.flathub.org/repo/flathub.flatpakrepo' }                 # Flathub
+# - { name: 'fedora', url: 'oci+https://registry.fedoraproject.org' }                           # Fedora
+# - { name: 'flathub-beta', url: 'https://flathub.org/beta-repo/flathub-beta.flatpakrepo' }     # Flathub Beta
+# - { name: 'gnome-nightly', url: 'https://nightly.gnome.org/gnome-nightly.flatpakrepo' }       # GNOME nightly    
+# - { name: 'kdeapps', url: 'https://distribute.kde.org/kdeapps.flatpakrepo' }                  # KDE applications
+
+flatpak_package_install:
+  - { remote: 'flathub', package: 'com.microsoft.Teams' }
+  - { remote: 'flathub', package: 'org.mozilla.firefox' }
+  - { remote: 'flathub', package: 'org.onlyoffice.desktopeditor' }
+  - { remote: 'flathub', package: 'org.libreoffice.LibreOffice' }
+   
