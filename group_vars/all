@@ -11,6 +11,7 @@ layered_packages_install:
     - gnome-shell-extension-sound-output-device-chooser
     - gnome-shell-extension-dash-to-dock
     - gnome-tweaks
+    - texlive-scheme-basic
 
 layered_packages_remove:
     - firefox-langpacks
