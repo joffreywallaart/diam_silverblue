@@ -27,8 +27,8 @@ flatpak_remote_install:
 # - { name: 'kdeapps', url: 'https://distribute.kde.org/kdeapps.flatpakrepo' }                  # KDE applications
 
 flatpak_package_install:
-  - { remote: 'flathub', package: 'com.microsoft.Teams' }
+  - { remote: 'flathub', package: 'com.github.IsmaelMartinez.teams_for_linux' }
   - { remote: 'flathub', package: 'org.mozilla.firefox' }
-  - { remote: 'flathub', package: 'org.onlyoffice.desktopeditor' }
+  - { remote: 'flathub', package: 'org.onlyoffice.desktopeditors' }
   - { remote: 'flathub', package: 'org.libreoffice.LibreOffice' }
    
