@@ -1,6 +1,12 @@
 ---
 # tasks file for flatpaks
 
+- name: Remove the Fedora flatpak repo
+  community.general.flatpak_remote:
+    name: fedora
+    state: present
+  become: yes
+
 - name: Add Flatpak remote for Flathub
   community.general.flatpak_remote:
     name: "{{ item.name }}"
