@@ -33,4 +33,10 @@ flatpak_package_install:
   - { remote: 'flathub', package: 'org.mozilla.firefox' }
   - { remote: 'flathub', package: 'org.onlyoffice.desktopeditors' }
   - { remote: 'flathub', package: 'org.libreoffice.LibreOffice' }
-   
+
+# OS updates
+##
+
+updates_settings:
+  - { section: 'Daemon', option: 'AutomaticUpdatePolicy', value: 'stage' }   
+  - { section: 'Daemon', option: 'IdleExitTimeout', value: '600' }   
