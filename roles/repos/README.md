@@ -1,7 +1,13 @@
 Role Name
 =========
 
-A brief description of the role goes here.
+This role copies (COPR) repo files from the URL they are hosted to /etc/yum.repos.d
+
+In a silverblue installation, rpm-ostree can then also source these to layer packages on top of the base image.
+
+
+For instance: https://copr.fedorainfracloud.org/coprs/g/eduvpn/eduvpn-client/ has the links for the Fedora EduVPN repos.
+
 
 Requirements
 ------------
@@ -21,11 +27,13 @@ A list of other roles hosted on Galaxy should go here, plus any details in regar
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
+```yaml
+---
+- name: Install EduVPN COPR repo
+  ansible.builtin.get_url:
+  url: "https://copr.fedorainfracloud.org/coprs/g/eduvpn/eduvpn-client/repo/fedora-{{ dist_version }}/group_eduvpn-eduvpn-client-fedora-{{ dist_version }}.repo"
+  dest: /etc/yum.repos.d 
+```
 
 License
 -------
