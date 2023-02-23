@@ -1,0 +1,14 @@
+---
+# tasks file for repos
+
+- name: Set major version variable
+  ansible.builtin.set_fact:
+    dist_version: "{{ ansible_distribution_major_version }}"
+
+- name: Copy eduvpn COPR repo
+  ansible.builtin.get_url:
+    url: "https://copr.fedorainfracloud.org/coprs/g/eduvpn/eduvpn-client/repo/fedora-{{ dist_version }}/group_eduvpn-eduvpn-client-fedora-{{ dist_version }}.repo"
+    dest: /etc/yum.repos.d
+    owner: root
+    mode: 0644
+  become: yes

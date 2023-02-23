@@ -1,6 +1,23 @@
 ---
 
 - hosts: all
+
+  tasks:
+    - name: Add hostname to dynamic hosts
+      ansible.builtin.add_host:
+        name: "{{ ansible_hostname }}"
+        group: workstations
+
+    - name: Set facts
+      ansible.builtin.set_fact:
+        user: "{{ lookup('vars', ansible_hostname)['user'] }}"
+
+    - name: Display user_name
+      ansible.builtin.debug:
+        msg: "{{ user }}"
+
+          
+
   roles:
     - { role: ssh_setup }
     - { role: layered_packages }
