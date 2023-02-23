@@ -12,6 +12,7 @@ layered_packages_install:
     - gnome-shell-extension-dash-to-dock
     - gnome-tweaks
     - texlive-scheme-basic
+    - eduvpn-client
 
 layered_packages_remove:
     - firefox-langpacks
