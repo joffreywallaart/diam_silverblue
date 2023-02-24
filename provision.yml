@@ -7,3 +7,4 @@
     - { role: repos }
     - { role: layered_packages }
     - { role: flatpaks }
+    - { role: os_updates }

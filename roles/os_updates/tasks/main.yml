@@ -1,2 +1,16 @@
 ---
 # tasks file for os_updates
+
+- name: Create and populate /etc/rpm-ostreed.conf
+  community.general.ini_file:
+    path: /etc/rpm-ostreed.conf
+    section: "{{ item.section }}"
+    option: "{{ item.option }}"
+    value: "{{ item.value }}"
+    no_extra_spaces: true
+    exclusive: true
+    mode: '0644'
+    owner: root
+    backup: true
+  loop: "{{ updates_settings }}"
+  become: yes
