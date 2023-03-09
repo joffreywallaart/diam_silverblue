@@ -4,6 +4,7 @@
 
   roles:
     - { role: ssh_setup }
+    - { role: dns }
     - { role: repos }
     - { role: layered_packages }
     - { role: flatpaks }

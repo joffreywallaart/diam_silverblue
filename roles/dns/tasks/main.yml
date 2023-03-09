@@ -1,0 +1,22 @@
+---
+# tasks file for dns
+
+- name: Create /etc/systemd/resolved.conf.d if it doesn't exist
+  ansible.builtin.file:
+    path: /etc/systemd/resolved.conf.d
+    state: directory
+    owner: root
+    mode: 0755
+  become: yes
+
+- name: Copy dns_servers.conf to /etc/systemd/resolved.conf.d/dns_servers.conf
+  ansible.builtin.copy:
+    src: dns_servers.conf
+    dest: /etc/systemd/resolved.conf.d/dns_servers.conf
+    owner: root
+    mode: 0644
+  become: yes
+  notify: restart_resolved
+
+- name: Force all notified handlers to run at this point, not waiting for normal sync points
+  ansible.builtin.meta: flush_handlers
